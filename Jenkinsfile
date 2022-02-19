@@ -52,11 +52,10 @@ pipeline {
         }
     }
            stage('Build nginx image') {
+		agent { dockerfile true }
             steps {
                 sh 'rm -rf `pwd`/Directory4'
                 sh 'mkdir `pwd`/Directory4'
-                sh 'sudo docker pull nginx'
-                echo 'Hello World'
             }
         }
             stage('Run container') {
