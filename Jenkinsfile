@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'ubuntuAWS'}
+    agent {label 'JenkinsSlave'}
     stages {
         stage('Create files') {
             steps {
