@@ -52,8 +52,11 @@ pipeline {
         }
     }
            stage('Build nginx image') {
-		agent { dockerfile true
-			reuseNode true }
+		agent { dockerfile {
+		filename 'Dockerfile'
+		reuseNode true			
+		}
+		}
             steps {
 		sh 'echo 555'
                 sh 'rm -rf `pwd`/Directory4'
