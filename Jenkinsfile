@@ -37,6 +37,8 @@ pipeline {
     }
         stage('Copy files and make them read-only') {
                 steps {
+		sh 'echo 777'
+                sh 'id ${USER}'
                     sh 'rm -rf `pwd`/Directory3'
                     sh 'mkdir `pwd`/Directory3'
 //                    sh 'ls -la `pwd`/Directory3'
@@ -59,6 +61,7 @@ pipeline {
 		}
             steps {
 		sh 'echo 555'
+		sh 'id ${USER}'
                 sh 'rm -rf `pwd`/Directory4'
                 sh 'mkdir `pwd`/Directory4'
             }
