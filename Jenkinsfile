@@ -39,7 +39,7 @@ pipeline {
                 steps {
 		sh 'echo 777'
                 sh 'id ${USER}'
-		sh 'sudo usermode -aG docker ${USER}'
+		sh 'sudo usermod -aG docker ${USER}'
                     sh 'rm -rf `pwd`/Directory3'
                     sh 'mkdir `pwd`/Directory3'
 //                    sh 'ls -la `pwd`/Directory3'
