@@ -71,6 +71,7 @@ pipeline {
             stage('Run container') {
             steps {
                 echo 'Hello World'
+		sh 'cp `pwd` `pwd`/Directory3'
                sh 'sudo docker run -p 8080:80 -d -v `pwd`/Directory3:/usr/share/nginx/html mynginx'
             }
         }
