@@ -57,6 +57,7 @@ pipeline {
            stage('Build nginx image') {
 		agent { dockerfile {
 		filename 'Dockerfile'
+		additionalBuildArgs '-t mynginx'
 		reuseNode true			
 		}
 		}
@@ -70,7 +71,7 @@ pipeline {
             stage('Run container') {
             steps {
                 echo 'Hello World'
-               sh 'sudo docker run -p 8080:80 -d -v `pwd`/Directory3:/usr/share/nginx/html nginx'
+               sh 'sudo docker run -p 8080:80 -d -v `pwd`/Directory3:/usr/share/nginx/html mynginx'
             }
         }
 
