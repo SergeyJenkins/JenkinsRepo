@@ -72,7 +72,7 @@ pipeline {
             steps {
                 echo 'Hello World'
 		sh 'cp `pwd`/index.html `pwd`/Directory3'
-               sh 'sudo docker run -p 8080:80 -d -v `pwd`/Directory3:/usr/share/nginx/html mynginx'
+               sh 'sudo docker run -p 80:80 -d -v `pwd`/Directory3:/usr/share/nginx/html mynginx'
             }
         }
 
