@@ -79,7 +79,7 @@ pipeline {
 		script{
                     for(int i=0;i<10;i++)
                         {
-                            sh 'cat `pwd`/Directory2/textFile'+i+'.txt' >> `pwd`/Directory5/index.html'
+                            sh 'cat `pwd`/Directory2/textFile'+i+'.txt >> `pwd`/Directory5/index.html'
                         }
                 }
 
