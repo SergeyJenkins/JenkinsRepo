@@ -71,8 +71,19 @@ pipeline {
             stage('Run container') {
             steps {
                 echo 'Hello World'
-		sh 'cp `pwd`/index.html `pwd`/Directory3'
-               sh 'sudo docker run -p 80:80 -d -v `pwd`/Directory3:/usr/share/nginx/html mynginx'
+		sh 'rm -rf `pwd`/Directory5'
+                sh 'mkdir `pwd`/Directory5'
+		sh 'cp -r `pwd`/Directory3 `pwd`/Directory5'
+		sh 'cp `pwd`/index.html `pwd`/Directory5'
+		sh 'echo "Jenkins Build ID: $BUILD_ID" > `pwd`/Directory5/index.html'
+		script{
+                    for(int i=0;i<10;i++)
+                        {
+                            sh 'cat `pwd`/Directory2/textFile'+i+'.txt' >> `pwd`/Directory5/index.html'
+                        }
+                }
+
+               sh 'sudo docker run -p 80:80 -d -v `pwd`/Directory5:/usr/share/nginx/html mynginx'
             }
         }
 
