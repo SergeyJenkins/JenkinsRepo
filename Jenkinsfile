@@ -47,7 +47,6 @@ pipeline {
 	            }
 	        }
                 steps {
-		    sh 'id ${USER}'
                     sh 'rm -rf `pwd`/Directory4'
                     sh 'mkdir `pwd`/Directory4'
                 }
