@@ -42,7 +42,7 @@ pipeline {
 	        agent { 
 	            dockerfile {
 	                filename 'Dockerfile'
-		        additionalBuildArgs '-t mynginx"'+$BUILD_TAG+'"'
+		        additionalBuildArgs '-t mynginx'
 		        reuseNode true			
 	            }
 	        }
@@ -65,7 +65,7 @@ pipeline {
                                 sh 'cat `pwd`/Directory2/textFile'+i+'.txt >> `pwd`/Directory5/index.html'
                             }
                     }
-                    sh 'sudo docker run -p 80:80 -d -v `pwd`/Directory5:/usr/share/nginx/html mynginx"'+$BUILD_TAG+'"'
+                    sh 'sudo docker run -p 80:80 -d -v `pwd`/Directory5:/usr/share/nginx/html mynginx'
                 }
            }
 
