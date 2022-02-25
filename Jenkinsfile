@@ -65,7 +65,7 @@ pipeline {
                                 sh 'cat `pwd`/Directory2/textFile'+i+'.txt >> `pwd`/Directory5/index.html'
                             }
                     }
-                    sh 'sudo docker run -p 80:80 -d -v `pwd`/Directory5:/usr/share/nginx/html mynginx'
+                    sh 'docker run -p 80:80 -d -v `pwd`/Directory5:/usr/share/nginx/html mynginx'
                 }
            }
 
